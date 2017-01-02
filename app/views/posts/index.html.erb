@@ -1,21 +1,29 @@
-<div class="container">
-  <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
-    <% @posts.each do |post| %>
-    <div class="col-xs-12">
-      <div class="text-center">
-        <h2><%= post.title %></h2>
-        <h6><%= post.created_at.strftime('%b %d, %Y') %></h6>
-      </div>
 
-      <div>
-        <%= raw(post.body).truncate(358) %>
-      </div>
+<% @posts.each do |post| %>
+  <div class="post-default">
+    <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
+    <h2 class="heading"><a href="blog-post-1.html"><%= post.title %></a></h2>
+    <h3 class="date"><a href="date.html"><%= post.created_at.strftime('%d de %b de %Y ') %></a></h3>
+    <div class="post-image"><img src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/post-image-1.jpg" alt/></div>
+    <div class="post-text">
 
-      <div class="text-center">
+      <%= raw(post.body).truncate(500) %>
+      <!-- <p>Lorem ipsum dolor sit amet, utroque sapientem cu per. In mei commodo prompta, sit at atomorum incorrupte. Omnium prodesset cu nam, vim dictas omnesque et. Te utinam instructior est, sit disputando adversarium te. Tale consul disputando mei ut, ex blandit euripidis eos, eu nam brute euripidis. An ius alii alia viderer, idque simul an nam. Commune eloquentiam te mel, cu omnis altera luptatum mei. Vel wisi utinam adipiscing ut, ex mel harum ceteros tacimates, ex agam consectetuer eam.</p> -->
+      <!-- <p>Prompta numquam mel ad, tempor definiebas id usu, cum cu feugiat bonorum. Eu pri labores maiorum patrioque, sea an tation utinam. Idque albucius prodesset ei est, sea te vide contentiones consectetuer. Usu eu feugiat tibique ponderum, in dicat homero fabellas primis ocurreret no cum.</p> -->
+    </div>
+    <ul class="social-icons">
+      <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="index.html#"><i class="fa fa-instagram"></i></a></li>
+      <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
+    </ul>
+    <div class="comments-count">
+      <p><a href="blog-post-1.html#comments">16 Comments</a></p>
+    </div>
+    <div class="divider">
         <%= link_to "READ MORE", post_path(post) %>
       </div>
-      <br>
-    </div>
-    <% end %>
   </div>
-</div>
+<% end %>
+
