@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
+    <!-- START: Styles-->
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/style.css"/>
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/adaptive.css"/>
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/font-awesome.css"/>
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/owl.carousel.css"/>
+    <!-- END: Styles-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- START: Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,600" rel="stylesheet" type="text/css"/>
+    <!-- END: Fonts-->
+    <script>__4front__=__aerobatic__={"versionId":"fsGJguDnb9sjUg","versionName":"v3","buildType":"release","webPagePath":"index.html","staticAssetPath":"//d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg","appId":"2ca34baa-a19e-4bfe-b380-f6fde1e95daa","appName":"octrace-selena","appUrl":"https://octrace-selena.aerobatic.io","deployStage":"production","statusCode":200,"manifestSha":"9ba4a50f91379e7c88ae3126e40dd60b1b923aee","baseUrl":"https://octrace-selena.aerobatic.io","versionCommit":"87fd16327b3b4c493a1559ff22785acab2633903"};</script>
     <title>Blog</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +24,46 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- START: Header-->
+    <div class="header">
+      <div class="container">
+        <h1 class="logo">Arly Moura</h1>
+      </div>
+    </div>
+    <!-- END: Header-->
+    <!-- START: Menu-->
+    <%= render 'layouts/menu' %>
+    <!-- END: Menu-->
+    <!-- START: SLIDE Hero-->
+    <%= render 'layouts/slide'  %>
+    <!-- END: SLIDE Hero-->
+
+    <div class="main-section">
+      <div class="container">
+        <!-- START: Content-->
+        <div class="content">
+
+          <%= yield %>
+
+        </div>
+        <!-- START: SIDEBAR-->
+        <%= render 'layouts/sidebar' %>
+        <!-- END: SIDEBAR-->
+      </div>
+    </div>
+
+    <!-- START: FOOTER-->
+    <%= render 'layouts/footer' %>
+    <!-- END: FOOTER-->
+
+    <!-- START: Menu Left-->
+    <%= render 'layouts/menu_left' %>
+    <!-- END: Menu Left-->
+
+
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/jquery-2.2.4.js"></script>
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/owl.carousel.js"></script>
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/main.js"></script>
   </body>
 </html>
