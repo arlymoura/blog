@@ -35,14 +35,18 @@
     <!-- START: Menu-->
     <%= render 'layouts/menu' %>
     <!-- END: Menu-->
+    <% if current_page?(root_url) %>
     <!-- START: SLIDE Hero-->
-    <%= render 'layouts/slide'  %>
+      <%= render 'layouts/slide'  %>
     <!-- END: SLIDE Hero-->
+    <% end %>
 
     <div class="main-section">
       <div class="container">
         <!-- START: Content-->
         <div class="content">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 
           <%= yield %>
 
