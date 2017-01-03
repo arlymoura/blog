@@ -1,10 +1,11 @@
 
-<% @posts.each do |post| %>
+<% @posts[4..-1].each do |post| %>
   <div class="post-default">
     <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
     <h2 class="heading"><a href="blog-post-1.html"><%= post.title %></a></h2>
     <h3 class="date"><a href="date.html"><%= post.created_at.strftime('%d de %b de %Y ') %></a></h3>
-    <div class="post-image"><img src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/post-image-1.jpg" alt/></div>
+    <!-- <div class="post&#45;image"><img src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa&#45;a19e&#45;4bfe&#45;b380&#45;f6fde1e95daa/fsGJguDnb9sjUg/img/post&#45;image&#45;1.jpg" alt/></div> -->
+    <div class="post-image"><img src="<%= post.image.url(:list_thumb) %>" alt/></div>
     <div class="post-text">
 
       <%= raw(post.body).truncate(500) %>

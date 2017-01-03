@@ -2,34 +2,15 @@
     <div class="hero">
       <div class="container">
         <div class="carousel carousel-default">
-          <div style="background-image: url(https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/hero-default-1.jpg);" class="slide">
+      <% @posts[0..3].each do |post| %>
+          <div style="background-image: url(<%= post.image.url(:content) %>);" class="slide">
             <div class="slide-info">
-              <h3 class="category"><a href="category.html">Lifestyle</a></h3>
-              <h2 class="heading"><a href="blog-post-1.html">Why you should not waste your time on someone else`s dreams</a></h2>
-              <h3 class="date"><a href="date.html">27 March 2016</a></h3>
+              <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
+              <h2 class="heading"><a href="blog-post-1.html"><%= post.title %></a></h2>
+              <h3 class="date"><a href="date.html"><%= post.created_at.strftime('%d de %b de %Y ') %></a></h3>
             </div>
           </div>
-          <div style="background-image: url(https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/hero-default-2.jpg);" class="slide">
-            <div class="slide-info">
-              <h3 class="category"><a href="category.html">Lifestyle</a></h3>
-              <h2 class="heading"><a href="blog-post-1.html">Spring is a great time to fall in love with somebody</a></h2>
-              <h3 class="date"><a href="date.html">27 March 2016</a></h3>
-            </div>
-          </div>
-          <div style="background-image: url(https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/hero-default-3.jpg);" class="slide">
-            <div class="slide-info">
-              <h3 class="category"><a href="category.html">Travel</a></h3>
-              <h2 class="heading"><a href="blog-post-1.html">20 lessons from 5 years of traveling around the world</a></h2>
-              <h3 class="date"><a href="date.html">27 March 2016</a></h3>
-            </div>
-          </div>
-          <div style="background-image: url(https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/img/hero-default-4.jpg);" class="slide">
-            <div class="slide-info">
-              <h3 class="category"><a href="category.html">Inspiration</a></h3>
-              <h2 class="heading"><a href="blog-post-1.html">It`s time to change the future</a></h2>
-              <h3 class="date"><a href="date.html">27 March 2016</a></h3>
-            </div>
-          </div>
+        <% end  %>
         </div>
       </div>
     </div>

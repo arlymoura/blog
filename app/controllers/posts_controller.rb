@@ -15,11 +15,7 @@ class PostsController < ApplicationController
   # Create action saves the post into database
   def create
     @post = Post.new(post_params)
-    
     if @post.save!
-      puts params
-      puts @post
-      puts "aqui"
       flash[:notice] = "Successfully created post!"
       redirect_to post_path(@post)
     else
@@ -60,9 +56,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    puts "\n"*10
-    puts params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 
   def find_post
