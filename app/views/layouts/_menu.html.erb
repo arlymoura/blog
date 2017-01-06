@@ -8,23 +8,23 @@
           <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
         </ul>
         <ul class="navigation">
-          <li><%= link_to 'Início', root_path %></a></li>
+          <li><%= link_to 'Início', '/' %></a></li>
           <li><a href="category.html">Lifestyle</a></li>
           <li><a href="category.html">Inspiration</a></li>
           <li><a href="category.html">Travel</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <% if admin_signed_in? %>
+          <% if user_signed_in? %>
             <li><a href="">Admin<i class="fa fa-angle-down"></i></a>
               <ul>
                  <!--This block is only visible to signed in admins -->
                  <li><%= link_to 'Novo Post', new_post_path %></li>
-                 <li><%= link_to 'Minha Conta', edit_admin_registration_path  %></li>
-                 <li><%= link_to 'Sair', destroy_admin_session_path, :method => :delete %></li>
+                 <li><%= link_to 'Minha Conta', edit_user_registration_path  %></li>
+                 <li><%= link_to 'Sair', destroy_user_session_path, :method => :delete %></li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to 'Login', new_admin_session_path  %></li>
+            <li><%= link_to 'Login', new_user_session_path  %></li>
           <% end %>
         </ul>
         <div class="menu-tougle">

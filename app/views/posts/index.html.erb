@@ -8,7 +8,7 @@
     <div class="post-image"><img src="<%= post.image.url(:list_thumb) %>" alt/></div>
     <div class="post-text">
 
-      <%= raw(post.body).truncate(500) %>
+      <%= raw(post.body).truncate(500).html_safe %>
       <!-- <p>Lorem ipsum dolor sit amet, utroque sapientem cu per. In mei commodo prompta, sit at atomorum incorrupte. Omnium prodesset cu nam, vim dictas omnesque et. Te utinam instructior est, sit disputando adversarium te. Tale consul disputando mei ut, ex blandit euripidis eos, eu nam brute euripidis. An ius alii alia viderer, idque simul an nam. Commune eloquentiam te mel, cu omnis altera luptatum mei. Vel wisi utinam adipiscing ut, ex mel harum ceteros tacimates, ex agam consectetuer eam.</p> -->
       <!-- <p>Prompta numquam mel ad, tempor definiebas id usu, cum cu feugiat bonorum. Eu pri labores maiorum patrioque, sea an tation utinam. Idque albucius prodesset ei est, sea te vide contentiones consectetuer. Usu eu feugiat tibique ponderum, in dicat homero fabellas primis ocurreret no cum.</p> -->
     </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="divider">
         <%= link_to "READ MORE", post_path(post) %>
-      <% if admin_signed_in? %>
+      <% if user_signed_in? %>
         <%# <%= link_to "Show", post_path(post), class: "btn btn-primary" %>
         <%= link_to "Edit", edit_post_path(post), class: "btn btn-default" %>
         <%# <%= link_to "Delete", post_path(post), class: "btn btn-danger", data: {:confirm => "Are you sure?"}, method: :delete %>
