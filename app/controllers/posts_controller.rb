@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   # Create action saves the post into database
   def create
     @post = Post.new(post_params)
+    authorize @post
     if @post.save!
       flash[:notice] = "Successfully created post!"
       redirect_to post_path(@post)
@@ -30,7 +31,9 @@ class PostsController < ApplicationController
 
   # Update action updates the post with the new information
   def update
-    if @post.update_attributes(post_params)
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.update(post_params)
       flash[:notice] = "Successfully updated post!"
       redirect_to post_path(@post)
     else

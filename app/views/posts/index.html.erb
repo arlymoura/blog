@@ -1,4 +1,10 @@
 
+<style type="text/css" media="all">
+  $( document ).on('turbolinks:load', function() {
+    console.log("It works on each visit!")
+  })
+</style>
+
 <% @posts[4..-1].each do |post| %>
   <div class="post-default">
     <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
@@ -24,12 +30,11 @@
     </div>
     <div class="divider">
         <%= link_to "READ MORE", post_path(post) %>
-      <% if user_signed_in? %>
-        <%# <%= link_to "Show", post_path(post), class: "btn btn-primary" %>
-        <%= link_to "Edit", edit_post_path(post), class: "btn btn-default" %>
-        <%# <%= link_to "Delete", post_path(post), class: "btn btn-danger", data: {:confirm => "Are you sure?"}, method: :delete %>
-      <% end %>
+        <% if user_signed_in? %>
+          <% if policy(post).update? %>
+            <%= link_to "Edit post", edit_post_path(post), class: "btn btn-default" %>
+          <% end %>
+        <% end %>
       </div>
   </div>
 <% end %>
-

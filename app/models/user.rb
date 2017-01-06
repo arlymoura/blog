@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
    before_create :set_default_role
 
-   enum role: {admin: 0, autor: 1, comun: 2}
+   enum role: {admin: 0, author: 1, comun: 2}
 
   private
   def set_default_role
