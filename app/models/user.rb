@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
    before_create :set_default_role
 
+   has_many :posts
+
    enum role: {admin: 0, author: 1, comun: 2}
 
   private
