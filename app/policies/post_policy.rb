@@ -9,7 +9,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-       user.admin? || user.author?
+    if user.admin?
+      return true
+    elsif user.author?
+      user.posts.find(params[:id])?
+    end
   end
 
   def destroy?

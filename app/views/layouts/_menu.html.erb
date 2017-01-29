@@ -1,42 +1,46 @@
-    <div id="menu" class="menu">
-      <div class="container">
-        <ul class="social-icons">
-          <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="index.html#"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
+<!-- START: Menu-->
+<div id="menu" class="menu without-hero-layout">
+  <div class="container">
+    <ul class="social-icons">
+      <li><a href="blog-post-1.html#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="blog-post-1.html#"><i class="fa fa-instagram"></i></a></li>
+      <li><a href="blog-post-1.html#"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="blog-post-1.html#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="blog-post-1.html#"><i class="fa fa-pinterest"></i></a></li>
+    </ul>
+    <ul class="navigation">
+      <li><a href="index.html">Home<i class="fa fa-angle-down"></i></a>
+        <ul>
+          <li><a href="index.html">Home Default</a></li>
+          <li><a href="index-list.html">Home List</a></li>
+          <li><a href="index-one-column-1.html">Home One Column 1</a></li>
+          <li><a href="index-one-column-2.html">Home One Column 2</a></li>
+          <li><a href="index-two-columns-1.html">Home Two Columns 1</a></li>
+          <li><a href="index-two-columns-2.html">Home Two Columns 2</a></li>
+          <li><a href="index-three-columns.html">Home Three Columns</a></li>
+          <li><a href="index-without-hero.html">Home Without Hero</a></li>
         </ul>
-        <ul class="navigation">
-          <li><%= link_to 'Início', '/' %></a></li>
-          <li><a href="category.html">Lifestyle</a></li>
-          <li><a href="category.html">Inspiration</a></li>
-          <li><a href="category.html">Travel</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <% if user_signed_in? %>
-            <% if current_user.admin? || current_user.author? %>
-            <li><a href="">Post<i class="fa fa-angle-down"></i></a>
-              <ul>
-                 <li><%= link_to 'Novo Post', new_post_path %></li>
-              </ul>
-            </li>
-          <% end %>
-            <li><a href="">Usuário<i class="fa fa-angle-down"></i></a>
-              <ul>
-                 <li><%= link_to 'Minha Conta', edit_user_registration_path  %></li>
-                 <li><%= link_to 'Sair', destroy_user_session_path, :method => :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to 'Login', new_user_session_path  %></li>
-          <% end %>
+      </li>
+      <li><a href="blog-post-1.html">Post<i class="fa fa-angle-down"></i></a>
+        <ul>
+          <li><a href="blog-post-1.html">Post 1</a></li>
+          <li><a href="blog-post-2.html">Post 2</a></li>
+          <li><a href="blog-post-3.html">Post 3</a></li>
+          <li><a href="features.html">Features</a></li>
         </ul>
-        <div class="menu-tougle">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
+      </li>
+      <li><a href="category.html">Lifestyle</a></li>
+      <li><a href="category.html">Inspiration</a></li>
+      <li><a href="category.html">Travel</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-tougle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
+  </div>
+</div>
+<!-- END: Menu-->
 

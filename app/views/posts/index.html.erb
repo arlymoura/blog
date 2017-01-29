@@ -1,10 +1,4 @@
 
-<style type="text/css" media="all">
-  $( document ).on('turbolinks:load', function() {
-    console.log("It works on each visit!")
-  })
-</style>
-
 <% @posts[4..-1].each do |post| %>
   <div class="post-default">
     <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
@@ -26,15 +20,21 @@
       <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
     </ul>
     <div class="comments-count">
-      <p><a href="blog-post-1.html#comments">16 Comments</a></p>
+      <p><a href="<%= post_path(post) %>"><%= post.comments.count %> Comentários</a></p>
     </div>
     <div class="divider">
-        <%= link_to "READ MORE", post_path(post) %>
-        <% if user_signed_in? %>
-          <% if policy(post).update? %>
-            <%= link_to "Edit post", edit_post_path(post), class: "btn btn-default" %>
-          <% end %>
+      <%= link_to "READ MORE", post_path(post) %>
+      <% if user_signed_in? %>
+        <% if policy(post).update? %>
+          <%= link_to "Edit post", edit_post_path(post), class: "btn btn-default" %>
         <% end %>
-      </div>
+      <% end %>
+    </div>
   </div>
 <% end %>
+
+
+<div class="pagination">
+  <div class="newer-posts hidden"><a href="index.html#"><i class="fa fa-long-arrow-left"></i>Newer Posts</a></div>
+  <div class="older-posts"><a href="index.html#">Older Posts<i class="fa fa-long-arrow-right"></i></a></div>
+</div>

@@ -1,17 +1,18 @@
 <!-- START: Hero-->
-    <div class="hero">
-      <div class="container">
-        <div class="carousel carousel-default">
+<div class="hero">
+  <div class="container">
+    <div class="carousel carousel-default">
       <% @posts[0..3].each do |post| %>
-          <div style="background-image: url(<%= post.image.url(:content) %>);" class="slide">
-            <div class="slide-info">
-              <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
-              <h2 class="heading"><a href="blog-post-1.html"><%= post.title %></a></h2>
-              <h3 class="date"><a href="date.html"><%= post.created_at.strftime('%d de %b de %Y ') %></a></h3>
-            </div>
+        <div style="background-image: url(<%= post.image.url(:content) %>);" class="slide">
+          <div class="slide-info">
+            <!-- <h3 class="category"><a href="category.html">Lifestyle</a></h3> -->
+            <h2 class="heading"><a href="blog-post-1.html"><%= post.title %></a></h2>
+            <h3 class="date"><a href="date.html"><%= post.created_at.strftime('%d de %b de %Y ') %></a></h3>
           </div>
-        <% end  %>
         </div>
-      </div>
+      <% end  %>
     </div>
-    <!-- END: Hero-->
+  </div>
+</div>
+<!-- END: Hero-->
+

@@ -45,6 +45,8 @@ class PostsController < ApplicationController
 
   # The show action renders the individual post after retrieving the the id
   def show
+    @comments = Comment.where(post_id: params[:id]).order('created_at DESC')
+    @lasts = Post.where(["id < ?", params[:id].to_i]).last(3)
   end
 
   # The destroy action removes the post permanently from the database
