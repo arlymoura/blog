@@ -12,7 +12,7 @@ class PostPolicy < ApplicationPolicy
     if user.admin?
       return true
     elsif user.author?
-      user.posts.find(params[:id])?
+      user.posts.find(params[:id])
     end
   end
 

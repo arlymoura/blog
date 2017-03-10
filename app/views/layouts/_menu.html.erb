@@ -34,6 +34,16 @@
       <li><a href="category.html">Travel</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <% if current_user.present? %>
+      <li><a href="#"><%= current_user.to_s %><i class="fa fa-angle-down"></i></a>
+        <ul>
+          <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
+          <li><a href="blog-post-2.html">Post 2</a></li>
+          <li><a href="blog-post-3.html">Post 3</a></li>
+          <li><a href="features.html">Features</a></li>
+        </ul>
+      </li>
+    <% end %>
     </ul>
     <div class="menu-tougle">
       <div class="bar"></div>
