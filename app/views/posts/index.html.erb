@@ -78,10 +78,18 @@
       </div>
     <% end %>
   <% end %>
-  <div class="pagination">
-    <div class="newer-posts hidden"><a href="index-one-column-2.html#"><i class="fa fa-long-arrow-left"></i>Newer Posts</a></div>
-    <div class="older-posts"><a href="index-one-column-2.html#">Older Posts<i class="fa fa-long-arrow-right"></i></a></div>
+  <div class="row">
+    <div class="col-md-4 center-block">
+    </div>
+    <div class="col-md-8 center-block">
+      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
+
+  <!-- <div class="pagination"> -->
+  <!--   <div class="newer&#45;posts hidden"><a href="index&#45;one&#45;column&#45;2.html#"><i class="fa fa&#45;long&#45;arrow&#45;left"></i>Newer Posts</a></div> -->
+  <!--   <div class="older&#45;posts"><a href="index&#45;one&#45;column&#45;2.html#">Older Posts<i class="fa fa&#45;long&#45;arrow&#45;right"></i></a></div> -->
+  <!-- </div> -->
 </div>
 </div>
 
