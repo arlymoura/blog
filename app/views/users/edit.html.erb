@@ -1,0 +1,33 @@
+<h2>Edit <%= @user.name.to_s.humanize %></h2>
+
+<%= simple_form_for(@user, html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <div class="form-group">
+      <%= f.label :role, "Tipo*" %>
+      <% if @user.new_record? %>
+        <%= f.select :role, User.roles.keys.map{|role| [role.titleize, role]}, {:selected => params[:role], :include_blank => false}, {class: "form-control"} %>
+      <% else %>
+        <div>
+          <%= f.select :role, User.roles.keys.map{|role| [role.titleize, role]}, {:selected => @user.role, :include_blank => false}, {class: "form-control", hidden: true} %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.field :password, autocomplete: "off", hint: "Deixe em branco se você não quiser alterá-lo", required: false %>
+    </div>
+    <div class="form-group">
+      <%= f.input :password_confirmation, required: false %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>

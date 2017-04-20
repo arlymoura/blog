@@ -61,3 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'pundit'
  gem 'omniauth'
  gem 'omniauth-facebook'
+ gem 'will_paginate'
+ gem 'will_paginate-bootstrap'

@@ -8,12 +8,12 @@
 
 FileUtils.remove_dir PATH_FILES rescue nil
 
-# subject_0 = Subject.new name: 'Testes'
-# subject_0.save
-# subject_1 = Subject.new name: 'Assunto 1', subject: subject_0
-# subject_1.save
-# subject_2 = Subject.new name: 'Assunto 2', subject: subject_0
-# subject_2.save
+subject_0 = Category.new name: 'Testes'
+subject_0.save
+subject_1 = Category.new name: 'Assunto 1'
+subject_1.save
+subject_2 = Category.new name: 'Assunto 2'
+subject_2.save
 
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id pellentesque magna, venenatis aliquam nisi. Cras ultricies placerat arcu sit amet dictum. Donec eget tortor eu ex sagittis tempor at vel urna. Nam in nisl blandit, accumsan sem quis, vehicula lacus. Curabitur vitae dapibus leo. Nam ligula dui, venenatis non sollicitudin ac, sagittis in enim. Donec vel mi ullamcorper velit egestas tincidunt. Nam at tristique nisl. Nam eros urna, sagittis iaculis dolor vel, gravida imperdiet purus. Vivamus tempor elit vitae ex lobortis luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
@@ -54,7 +54,7 @@ User.create! name: 'admin', password: '12345678', password_confirmation: '123456
 end
 
 (1..10).each do |n|
-   p = Post.create! title: "Post #{n}", body: text, user: User.find(n), image: img
+   p = Post.create! title: "Post #{n}", body: text, user: User.find(n), image: img, category: subject_0
   (1..5).each do |x|
     Comment.create! body: "Comentario #{x}", post: p, user: User.find(n)
   end

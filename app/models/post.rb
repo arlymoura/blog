@@ -9,4 +9,10 @@ class Post < ApplicationRecord
   # validates :image, presence: true
   mount_uploader :image, ImageUploader
 
+  def self.search(params)
+    posts = all # for not existing params args
+    posts = posts.where("LOWER(title) like ?", "%#{params[:search].downcase}%") if params[:search]
+    posts
+  end
+
 end

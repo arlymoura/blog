@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8"/>
     <!-- START: Styles-->
-    <!-- <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa&#45;a19e&#45;4bfe&#45;b380&#45;f6fde1e95daa/fsGJguDnb9sjUg/style.css"/> -->
-    <!-- <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa&#45;a19e&#45;4bfe&#45;b380&#45;f6fde1e95daa/fsGJguDnb9sjUg/css/adaptive.css"/> -->
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/style.css"/>
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/adaptive.css"/>
     <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/font-awesome.css"/>
-    <!-- <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa&#45;a19e&#45;4bfe&#45;b380&#45;f6fde1e95daa/fsGJguDnb9sjUg/css/owl.carousel.css"/> -->
+    <link rel="stylesheet" href="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/css/owl.carousel.css"/>
     <!-- END: Styles-->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- START: Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet" type="text/css"/>
@@ -23,48 +24,108 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
 
+  <body style="height: auto;">
     <!-- START: Header-->
-    <div class="header">
+    <div class="header" style="padding-bottom: 0px;">
       <div class="container">
-        <h1 class="logo">Arly Moura</h1>
+        <h1 class="logo">Banner</h1>
       </div>
     </div>
     <!-- END: Header-->
     <!-- START: Menu-->
-    <%= render 'layouts/menu' %>
-    <!-- END: Menu-->
-    <% if current_page?(root_url) %>
-    <!-- START: SLIDE Hero-->
-      <%= render 'layouts/slide'  %>
-    <!-- END: SLIDE Hero-->
-    <% end %>
-
-    <div class="main-section">
+    <div id="menu" class="menu">
       <div class="container">
-        <!-- START: Content-->
-        <div class="content">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-
-          <%= yield %>
-
+        <ul class="social-icons">
+          <li><a href="index-one-column-2.html#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+        <ul class="navigation">
+          <li><a href="<%= posts_path %>">Início</a></li>
+          <li><a href="">Notícias<i class="fa fa-angle-down"></i></a>
+            <ul>
+              <% if current_user.present? %>
+                <% unless current_user.comun? %>
+                  <li><a href="<%= new_post_path %>">Nova</a></li>
+                <% end %>
+              <% end %>
+              <li><a href="index-list.html">Lista</a></li>
+            </ul>
+          </li>
+          <% if current_user.present? %>
+            <% if current_user.admin? %>
+              <li><a href="">Usuários<i class="fa fa-angle-down"></i></a>
+                <ul>
+                  <li><a href="<%= new_user_registration_path %>">Novo</a></li>
+                  <li><a href="<%= users_path %>">Lista</a></li>
+                </ul>
+              </li>
+            <% end %>
+          <% end %>
+          <li><a href="">Categorias<i class="fa fa-angle-down"></i></a>
+            <ul>
+              <% if current_user.present? %>
+                <% unless current_user.comun? %>
+                  <li><a href="<%= new_category_path %>">Nova</a></li>
+                <% end %>
+              <% end %>
+              <li><a href="<%= categories_path %> ">Lista</a></li>
+            </ul>
+          </li>
+          <li><a href="<%= contact_path %>">Contato</a></li>
+          <% if current_user.present? %>
+            <li><a href="#"><%= current_user.to_s %><i class="fa fa-angle-down"></i></a>
+              <ul>
+                <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to('Login', new_user_session_path)  %></li>
+          <% end %>
+        </ul>
+        <div class="menu-tougle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <!-- START: SIDEBAR-->
-        <%= render 'layouts/sidebar' %>
-        <!-- END: SIDEBAR-->
       </div>
     </div>
-
-    <!-- START: FOOTER-->
-    <%= render 'layouts/footer' %>
-    <!-- END: FOOTER-->
-
-    <!-- START: Menu Left-->
+    <!-- END: Menu-->
+    <!-- START: Hero-->
+    <!-- END: Hero-->
+    <div class="main-section">
+      <div class="container">
+        <div class="content content-full-width">
+          <!-- START: Content-->
+          <%= yield %>
+          <!-- END: Content-->
+        </div>
+      </div>
+    </div>
+    <!-- START: Footer-->
+    <div class="footer">
+      <div class="container">
+        <p class="copyright">© 2017 All rights reserved</p>
+        <ul class="social-icons">
+          <li><a href="index-one-column-2.html#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="index-one-column-2.html#"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- END: Footer-->
+    <!-- START: Menu Sidebar-->
     <%= render 'layouts/menu_left' %>
-    <!-- END: Menu Left-->
-
-
+    <!-- END: Menu Sidebar-->
+    <!-- START: Scripts-->
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/jquery-2.2.4.js"></script>
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/owl.carousel.js"></script>
+    <script src="https://d2q4nobwyhnvov.cloudfront.net/2ca34baa-a19e-4bfe-b380-f6fde1e95daa/fsGJguDnb9sjUg/js/main.js"></script>
+    <!-- END: Scripts-->
   </body>
 </html>

@@ -9,7 +9,7 @@
           <li>
             <%= msg %>
           </li>
-          <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -23,15 +23,19 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :category_id %>
-    <%= f.collection_select :category, Category.all, :id, :name %>
+    <%= f.label :category_id, "Categoria*" %>
+    <% if @post.new_record? %>
+      <%= f.select :category_id, Category.all.map{|category| [category.name.titleize, category.id]}, {:selected => params[:category], :include_blank => false}, {class: "form-control"} %>
+    <% else %>
+      <div>
+        <%= f.select :category_id, Category.all.map{|category| [category.name.titleize, category.id]}, {:selected => @post.category, :include_blank => false}, {class: "form-control", hidden: true} %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-group">
     <%= f.input :body, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
   </div>
-
-
 
   <div class="form-group">
     <%= f.button :submit %>

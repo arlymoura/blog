@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # Index action to render all posts
   def index
     @posts = Post.all.order('created_at DESC')
+    @posts = Post.search(params).paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
   # New action for creating post
@@ -15,8 +16,8 @@ class PostsController < ApplicationController
   # Create action saves the post into database
   def create
     @post = Post.new(post_params)
-    authorize @post
     @post.user_id = current_user.id
+    # authorize @post
     if @post.save!
       flash[:notice] = "Successfully created post!"
       redirect_to post_path(@post)
@@ -62,7 +63,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :category)
+    params.require(:post).permit(:title, :body, :image, :category_id)
   end
 
   def find_post

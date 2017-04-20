@@ -1,0 +1,13 @@
+<div class="row">
+  <% @categories.each do |category| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <!-- <img src="..." alt="..."> -->
+      <div class="caption">
+        <h3><%= category.name %></h3>
+        <p>Total Notícias: <%= category.posts.count() %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

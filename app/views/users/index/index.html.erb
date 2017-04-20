@@ -1,0 +1,24 @@
+<h2>Lista de Usuários</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Facebook</th>
+            <th>Tipo</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.provider.present? %></td>
+            <td><%= user.role %></td>
+            <td><%= link_to 'Editar', user_registration_path(user) %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
