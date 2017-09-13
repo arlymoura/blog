@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'omniauth-facebook'
  gem 'will_paginate'
  gem 'will_paginate-bootstrap'
+ gem 'rails-i18n'
+ gem 'devise-i18n'
