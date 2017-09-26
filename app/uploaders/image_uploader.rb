@@ -1,6 +1,6 @@
-# encoding: utf-8
+encoding: utf-8
 class ImageUploader < CarrierWave::Uploader::Base
-  # include Ckeditor::Backend::CarrierWave
+  include Ckeditor::Backend::CarrierWave
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "uploads/post/#{Time.now().strftime('%Y')}/#{Time.now().strftime('%m')}/#{Time.now().strftime('%d')}/#{model.id}"
+    "#{PATH_FILES}/#{Time.now().strftime('%Y')}/#{Time.now().strftime('%m')}/#{Time.now().strftime('%d')}/#{model.id}"
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -55,7 +55,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   Ckeditor.image_file_types
-  # end
+  def extension_white_list
+    Ckeditor.image_file_types
+  end
 end
