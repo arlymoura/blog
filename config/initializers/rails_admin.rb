@@ -1,6 +1,15 @@
 RailsAdmin.config do |config|
 
   ### Popular gems integration
+  config.parent_controller = 'ApplicationController'
+
+  config.authorize_with do
+    unless current_user.try(:admin?)
+      flash[:error] = "Você não tem autorização pra acessar essa pagina!"
+      redirect_to main_app.root_path
+    end
+  end
+
 
   ## == Devise ==
   config.authenticate_with do
@@ -38,4 +47,23 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'User' do
+    create do
+      field :name
+      field :email
+      field :password
+      field :password_confirmation
+      field :role
+    end
+
+    edit do
+      field :name
+      field :email
+      field :password
+      field :password_confirmation
+      field :role
+    end
+  end
+
 end
