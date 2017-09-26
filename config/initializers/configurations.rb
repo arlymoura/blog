@@ -40,7 +40,7 @@ SEARCH_FOLDER_PARAMS = %w(name description enquirers_name enquirers_trade_name e
 # IMPORTANTE: tenha certeza de que esses diretórios estão acessíveis para o Apache
 
 # Repositório de arquivos
-PATH_FILES = "#{Rails.root}/../safira-files/#{Rails.env}"
+PATH_FILES = "#{Rails.root}/../blog-files/#{Rails.env}"
 FileUtils.makedirs(PATH_FILES)
 
 DEFAULT_DOC_INITIAL = "DOCUMENTACAO INICIAL"
