@@ -68,8 +68,11 @@
         <% else %>
           <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="" class="user-photo">
         <% end %>
-        <% if current_user.admin? || (comment.user.id == current_user.id) %>
-          <h3 class="name"><%= comment.user.name %></h3><a href="blog-post-1.html#" class="reply">X</a>
+
+        <% if user_signed_in? %>
+          <% if current_user.admin? || (comment.user.id == current_user.id) %>
+            <h3 class="name"><%= comment.user.name %></h3><a href="blog-post-1.html#" class="reply">X</a>
+          <% end %>
         <% end %>
         <h4 class="date"><%= comment.created_at.strftime("%d de %b de %Y as %H.%M ") %></h4>
         <p class="text"><%= comment.body %></p>

@@ -9,10 +9,11 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    user.comments.find(params[:id])?
+    user.comments.find(params[:id]).present?
   end
 
   def destroy?
     user.admin?
   end
+
 end
