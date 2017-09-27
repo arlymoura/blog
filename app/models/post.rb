@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  attr_accessor :image, :image_cache, :remove_image
 
   belongs_to :user
   belongs_to :category

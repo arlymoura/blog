@@ -48,6 +48,8 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.main_app_name = ["Mão Direita", "Admin"]
+
   config.model 'User' do
     create do
       field :name
@@ -63,6 +65,39 @@ RailsAdmin.config do |config|
       field :password
       field :password_confirmation
       field :role
+    end
+  end
+
+  config.model Post do
+    create do
+      field :category
+      field :title
+      field :image, :carrierwave
+      field :body, :ck_editor, :text do
+        label 'Texto'
+      end
+
+      field :user_id, :hidden do
+        default_value do
+          bindings[:views]._current_user.id
+        end
+      end
+    end
+
+
+    edit do
+      field :category
+      field :title
+      field :image
+      field :body, :ck_editor, :text do
+        label 'Texto'
+      end
+
+      field :user_id, :hidden do
+        default_value do
+          bindings[:views]._current_user.id
+        end
+      end
     end
   end
 
