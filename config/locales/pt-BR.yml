@@ -1,0 +1,42 @@
+pt-BR:
+  activerecord:
+    models:
+      post:
+        one: "Publicação"
+        other: "Publicações"
+      category:
+        one: "Categoria"
+        other: "Categorias"
+      comment:
+        one: "Comentario"
+        other: "Comentarios"
+      user:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      post:
+        title: "Titulo"
+        category: "Categoria"
+        image: "Imagem"
+        body: "Texto"
+        user: "Usuário"
+        created_at: "Data da Criação"
+        updated_at: "Data da Atualização"
+        comments: "Comentarios"
+      user:
+        name: "Nome"
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação de Senha"
+        role: "Tipo"
+      category:
+        name: "Nome"
+        posts: "Publicações"
+        created_at: "Data da Criação"
+        updated_at: "Data da Atualização"
+      comment:
+        body: "Texto"
+        post: "Publicação"
+        user: "Usuário"
+        created_at: "Data da Criação"
+        update_at: "Data da Atualização"
